@@ -1,6 +1,10 @@
+the_file =  open('Result.txt', 'w')
+
 def printPlayerList(l1):
     for x in l1:
-        print('->',x.attributes[0], x.attributes[1], x.attributes[2])
+        #print('->',x.attributes[0], x.attributes[1], x.attributes[2])
+        the_file.write(x.attributes[0] + x.attributes[1] + x.attributes[2]+'\n')
+    the_file.write('\n\n')
 
 
 def combo1(l1, i, temp, t, r, length, lol):
@@ -114,8 +118,15 @@ for batsmanList in battingCombo:
                     finalList.append(tempCombo[:])
 
 
-#for f in finalList:
-#    printPlayerList(f)
-#    print('\n\n')
+
 
 print(len(finalList))
+
+the_file.write('Total Combinations = ' + str(len(finalList))+'\n\n')
+
+for f in finalList:
+    printPlayerList(f)
+the_file.close()
+
+
+
